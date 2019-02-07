@@ -4,7 +4,7 @@ This repository contains the images that work with the [osmosis](https://github.
 
 ## Supported tags and respective Dockerfile links
 
-* [alpha](https://github.com/coreoas/osmosis-image/blob/master/alpha/Dockerfile)
+* [alpha (alpha/Dockerfile)](https://github.com/coreoas/osmosis-image/blob/master/alpha/Dockerfile)
 
 ## Quick reference
 
