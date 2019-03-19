@@ -22,9 +22,10 @@ RUN chmod +x /bin/entrypoint.sh
 
 ENV OWNER_UID 1000
 ENV OWNER_GID 1000
-ENV DATA_DIR /data
+ENV DATA_DIR /sync
 
 EXPOSE 5000
 
 ENTRYPOINT ["/bin/entrypoint.sh"]
 CMD ["unison", "-log", "-socket", "5000"]
+HEALTHCHECK --interval=5s --timeout=1s --retries=1 CMD /bin/sh -c 'netstat -an | grep LISTEN | grep 5000'

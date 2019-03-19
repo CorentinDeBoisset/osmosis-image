@@ -21,6 +21,8 @@ if [ "$1" = 'unison' ]; then
         echo "ignore = BelowPath ${IGNORED_DIR_LIST[$i]}" >> /home/owner/.unison/default.prf
     done
 
+    chown owner "$DATA_DIR"
+
     cd "$DATA_DIR"
     exec su-exec owner tini -- "$@"
 fi
