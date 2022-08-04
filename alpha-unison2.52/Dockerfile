@@ -1,19 +1,17 @@
-FROM alpine:3.12
+FROM alpine:3.16
 
 RUN apk add --no-cache \
         bash \
         su-exec \
         tini
 
-# The sed replacement is an ugly hack to work without GLIB
 RUN apk add --no-cache build-base ocaml \
-    && wget https://github.com/bcpierce00/unison/archive/v2.51.3.tar.gz -q -O - | tar zxv -C /tmp \
-    && cd /tmp/unison-2.51.3 \
-    && sed -i -e 's/GLIBC_SUPPORT_INOTIFY 0/GLIBC_SUPPORT_INOTIFY 1/' src/fsmonitor/linux/inotify_stubs.c \
-    && make UISTYLE=text NATIVE=true STATIC=true \
+    && wget https://github.com/bcpierce00/unison/archive/v2.52.0.tar.gz -q -O - | tar zxv -C /tmp \
+    && cd /tmp/unison-2.52.0 \
+    && make UISTYLE=text \
     && cp src/unison src/unison-fsmonitor /usr/local/bin \
     && apk del build-base ocaml \
-    && rm -rf /tmp/unison-2.51.3
+    && rm -rf /tmp/unison-2.52.0
 
 COPY entrypoint.sh /bin/entrypoint.sh
 COPY unison-default-profile.tpl /etc/unison-default-profile.tpl

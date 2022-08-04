@@ -4,7 +4,7 @@ This repository contains the images that work with the [osmosis](https://github.
 
 ## Supported tags and respective Dockerfile links
 
-* [alpha (alpha/Dockerfile)](https://github.com/coreoas/osmosis-image/blob/master/alpha/Dockerfile)
+* [alpha-unison2.52 (alpha-unison2.52/Dockerfile)](https://github.com/coreoas/osmosis-image/blob/master/alpha-unison2.52/Dockerfile)
 
 ## Quick reference
 
@@ -26,7 +26,9 @@ This repository contains the images that work with the [osmosis](https://github.
 
 ## How to use this image
 
-// TODO
+You can build this image by running:
+
+  docker build ./alpha-unison2.52
 
 ## Licence
 
